@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../db/models/user");
 const Article = require("../db/models/article");
-const userArticle = require("../db/models/userArticle"); // not actually needed
+const userArticle = require("../db/models/userArticle");
 
 // get all users
 router.get("/", async (req, res, next) => {
@@ -39,6 +39,19 @@ router.get("/:id/articles", async (req, res, next) => {
     });
     const actualData = await theUser.getArticles();
     res.json(actualData);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/:id", async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    const createdArticle = await userArticle.create({
+      articleId: 3,
+      userId: userId
+    });
+    res.json(createdArticle);
   } catch (error) {
     next(error);
   }
