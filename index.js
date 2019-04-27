@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./client/store";
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <Homepage />
   </Provider>,
   document.getElementById("app")
