@@ -95,12 +95,12 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Homepage; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _SingleTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleTab */ "./client/SingleTab.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -123,6 +123,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Homepage =
 /*#__PURE__*/
 function (_Component) {
@@ -134,14 +135,7 @@ function (_Component) {
     _classCallCheck(this, Homepage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this));
-    _this.state = {
-      alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
-      readSoon: ["www.article.com", "www.otherarticle.com"],
-      readLater: ["www.readlater.com", "www.readevenmorelater.com"],
-      isHovered: false
-    };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    _this.handleHover = _this.handleHover.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -185,19 +179,19 @@ function (_Component) {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "always-open column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ALWAYS OPEN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.state.alwaysOpen.map(function (url) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ALWAYS OPEN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.alwaysOpen.map(function (url) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
           url: url
         });
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "read-now column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ SOON "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.state.readSoon.map(function (url) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ SOON "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readSoon.map(function (url) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
           url: url
         });
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "read-later column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.state.readLater.map(function (url) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readLater.map(function (url) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
           url: url
         });
@@ -208,7 +202,17 @@ function (_Component) {
   return Homepage;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    alwaysOpen: state.alwaysOpen,
+    readSoon: state.readSoon,
+    readLater: state.readLater
+  };
+};
 
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, null)(Homepage));
 
 /***/ }),
 
@@ -307,9 +311,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var initialState = {
-  alwaysOpen: [],
-  readSoon: [],
-  readLater: []
+  alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
+  readSoon: ["www.article.com", "www.otherarticle.com", "www.redux.com"],
+  readLater: ["www.readlater.com", "www.readevenmorelater.com"]
 };
 
 function yourReducer() {

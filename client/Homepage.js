@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import SingleTab from "./SingleTab";
+import { connect } from "react-redux";
 
-export default class Homepage extends Component {
+class Homepage extends Component {
   constructor() {
     super();
-    this.state = {
-      alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
-      readSoon: ["www.article.com", "www.otherarticle.com"],
-      readLater: ["www.readlater.com", "www.readevenmorelater.com"],
-      isHovered: false
-    };
     this.handleClick = this.handleClick.bind(this);
-    this.handleHover = this.handleHover.bind(this);
   }
   handleClick(event) {
     event.preventDefault();
@@ -42,7 +36,7 @@ export default class Homepage extends Component {
           <div className="always-open column">
             <h2>ALWAYS OPEN</h2>
             <ol>
-              {this.state.alwaysOpen.map(url => (
+              {this.props.alwaysOpen.map(url => (
                 <SingleTab url={url} />
               ))}
             </ol>
@@ -50,7 +44,7 @@ export default class Homepage extends Component {
           <div className="read-now column">
             <h2> READ SOON </h2>
             <ol>
-              {this.state.readSoon.map(url => (
+              {this.props.readSoon.map(url => (
                 <SingleTab url={url} />
               ))}
             </ol>
@@ -58,7 +52,7 @@ export default class Homepage extends Component {
           <div className="read-later column">
             <h2> READ LATER </h2>
             <ol>
-              {this.state.readLater.map(url => (
+              {this.props.readLater.map(url => (
                 <SingleTab url={url} />
               ))}
             </ol>
@@ -68,3 +62,18 @@ export default class Homepage extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    alwaysOpen: state.alwaysOpen,
+    readSoon: state.readSoon,
+    readLater: state.readLater
+  };
+};
+
+const mapDispatchToProps = dispatch => {};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Homepage);

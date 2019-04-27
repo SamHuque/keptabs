@@ -3,9 +3,9 @@ import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
 
 const initialState = {
-  alwaysOpen: [],
-  readSoon: [],
-  readLater: []
+  alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
+  readSoon: ["www.article.com", "www.otherarticle.com", "www.redux.com"],
+  readLater: ["www.readlater.com", "www.readevenmorelater.com"]
 };
 
 function yourReducer(state = initialState, action) {
