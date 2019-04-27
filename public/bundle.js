@@ -132,6 +132,11 @@ function (_Component) {
     _classCallCheck(this, Homepage);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this));
+    _this.state = {
+      alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
+      readSoon: ["www.article.com", "www.otherarticle.com"],
+      readLater: ["www.readlater.com", "www.readevenmorelater.com"]
+    };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -149,7 +154,7 @@ function (_Component) {
         onSubmit: this.handleClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "url"
-      }, "URL:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Add Tab Here:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         size: "50",
         type: "text",
         name: "url"
@@ -161,15 +166,21 @@ function (_Component) {
         value: "read-later"
       }, "Read Later")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
-      }, "Add Link")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "row"
+      }, "Add Tab")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "always-open column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ALWAYS OPEN")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "read-now column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ SOON ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "read-later column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "))));
+        className: "always-open column"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ALWAYS OPEN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.alwaysOpen.map(function (url) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, url);
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "read-now column"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ SOON "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.readSoon.map(function (url) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, url);
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "read-later column"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.state.readLater.map(function (url) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, url);
+      })))));
     }
   }]);
 
