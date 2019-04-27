@@ -47,8 +47,9 @@ router.get("/:id/articles", async (req, res, next) => {
 router.post("/:id", async (req, res, next) => {
   try {
     const userId = req.params.id;
+    const articleId = req.body.articleId;
     const createdArticle = await userArticle.create({
-      articleId: 3,
+      articleId: articleId,
       userId: userId
     });
     res.json(createdArticle);
