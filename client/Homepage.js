@@ -16,6 +16,7 @@ export default class Homepage extends Component {
   }
   handleClick(event) {
     event.preventDefault();
+
     console.log("the button has been clicked", event);
   }
   handleHover() {
@@ -24,14 +25,13 @@ export default class Homepage extends Component {
     }));
   }
   render() {
-    const btnClass = this.state.isHovered ? "hovered-list" : "";
     return (
       <div>
         <h1>Keptabs</h1>
         <form onSubmit={this.handleClick}>
           <label htmlFor="url">Add Tab Here:</label>
           <input size="50" type="text" name="url" />
-          <select>
+          <select className={"select-css"}>
             <option value="always-open">Always Open</option>
             <option value="read-now">Read Soon</option>
             <option value="read-later">Read Later</option>

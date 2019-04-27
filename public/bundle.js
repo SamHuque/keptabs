@@ -163,7 +163,6 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var btnClass = this.state.isHovered ? "hovered-list" : "";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Keptabs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -172,7 +171,9 @@ function (_Component) {
         size: "50",
         type: "text",
         name: "url"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "select-css"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "always-open"
       }, "Always Open"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "read-now"
