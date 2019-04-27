@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import SingleTab from "./SingleTab";
 
 export default class Homepage extends Component {
   constructor() {
@@ -7,15 +8,23 @@ export default class Homepage extends Component {
     this.state = {
       alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
       readSoon: ["www.article.com", "www.otherarticle.com"],
-      readLater: ["www.readlater.com", "www.readevenmorelater.com"]
+      readLater: ["www.readlater.com", "www.readevenmorelater.com"],
+      isHovered: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleHover = this.handleHover.bind(this);
   }
   handleClick(event) {
     event.preventDefault();
     console.log("the button has been clicked", event);
   }
+  handleHover() {
+    this.setState(prevState => ({
+      isHovered: !prevState.isHovered
+    }));
+  }
   render() {
+    const btnClass = this.state.isHovered ? "hovered-list" : "";
     return (
       <div>
         <h1>Keptabs</h1>
@@ -32,27 +41,27 @@ export default class Homepage extends Component {
         <div className="row">
           <div className="always-open column">
             <h2>ALWAYS OPEN</h2>
-            <ul>
+            <ol>
               {this.state.alwaysOpen.map(url => (
-                <li>{url}</li>
+                <SingleTab url={url} />
               ))}
-            </ul>
+            </ol>
           </div>
           <div className="read-now column">
             <h2> READ SOON </h2>
-            <ul>
+            <ol>
               {this.state.readSoon.map(url => (
-                <li>{url}</li>
+                <SingleTab url={url} />
               ))}
-            </ul>
+            </ol>
           </div>
           <div className="read-later column">
             <h2> READ LATER </h2>
-            <ul>
+            <ol>
               {this.state.readLater.map(url => (
-                <li>{url}</li>
+                <SingleTab url={url} />
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
       </div>

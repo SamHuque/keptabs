@@ -17,3 +17,19 @@ form {
   display: table;
   clear: both;
 }
+
+ol {
+  list-style: none;
+  padding: 5px;
+}
+li {
+  padding: 5px 10px;
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
+  text-align: center;
+}
+
+.hovered-list {
+  background-color: teal;
+  border: 1px solid #dddddd;
+}
