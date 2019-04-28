@@ -34,6 +34,7 @@ const getUser = user => {
 
 export const getUserThunk = formData => {
   return async function(dispatch) {
+    console.log("this is dispatched");
     const existingUser = await Axios.put("/api/auth/login", formData);
     dispatch(getUser(existingUser));
   };
@@ -44,11 +45,14 @@ export const getUserThunk = formData => {
 const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
   readSoon: ["www.article.com", "www.otherarticle.com", "www.redux.com"],
-  readLater: ["www.readlater.com", "www.readevenmorelater.com"]
+  readLater: ["www.readlater.com", "www.readevenmorelater.com"],
+  user: false
 };
 
 function yourReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_USER:
+      return { ...state, user: action.user };
     default:
       return state;
   }

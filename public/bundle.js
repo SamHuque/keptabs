@@ -101,108 +101,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _SingleTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleTab */ "./client/SingleTab.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
 
 
-
-var Homepage =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Homepage, _Component);
-
-  function Homepage() {
-    var _this;
-
-    _classCallCheck(this, Homepage);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Homepage).call(this));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    return _this;
+class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  _createClass(Homepage, [{
-    key: "handleClick",
-    value: function handleClick(event) {
-      event.preventDefault();
-      console.log("the button has been clicked", event);
-    }
-  }, {
-    key: "handleHover",
-    value: function handleHover() {
-      this.setState(function (prevState) {
-        return {
-          isHovered: !prevState.isHovered
-        };
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Keptabs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleClick
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "url"
-      }, "Add Tab Here:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        size: "50",
-        type: "text",
-        name: "url"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "select-css"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "always-open"
-      }, "Always Open"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "read-now"
-      }, "Read Soon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "read-later"
-      }, "Read Later")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "Add Tab")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "always-open column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ALWAYS OPEN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.alwaysOpen.map(function (url) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          url: url
-        });
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "read-now column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ SOON "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readSoon.map(function (url) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          url: url
-        });
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "read-later column"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readLater.map(function (url) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          url: url
-        });
-      })))));
-    }
-  }]);
+  handleClick(event) {
+    event.preventDefault();
+    console.log("the button has been clicked", event);
+  }
 
-  return Homepage;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+  handleHover() {
+    this.setState(prevState => ({
+      isHovered: !prevState.isHovered
+    }));
+  }
 
-var mapStateToProps = function mapStateToProps(state) {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Keptabs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      onSubmit: this.handleClick
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      htmlFor: "url"
+    }, "Add Tab Here:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      size: "50",
+      type: "text",
+      name: "url"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      className: "select-css"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: "always-open"
+    }, "Always Open"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: "read-now"
+    }, "Read Soon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      value: "read-later"
+    }, "Read Later")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "submit"
+    }, "Add Tab")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "row"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "always-open column"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "ALWAYS OPEN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.alwaysOpen.map(url => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      url: url
+    })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "read-now column"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ SOON "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readSoon.map(url => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      url: url
+    })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "read-later column"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readLater.map(url => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      url: url
+    }))))));
+  }
+
+}
+
+const mapStateToProps = state => {
   return {
     alwaysOpen: state.alwaysOpen,
     readSoon: state.readSoon,
@@ -210,7 +169,7 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {};
+const mapDispatchToProps = dispatch => {};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, null)(Homepage));
 
@@ -225,80 +184,61 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {};
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Login; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./client/store.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 
 
-var Login =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Login, _Component);
 
-  function Login() {
-    var _this;
-
-    _classCallCheck(this, Login);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this));
-    _this.state = {
-      email: "",
-      password: ""
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    return _this;
+class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
   }
 
-  _createClass(Login, [{
-    key: "handleSubmit",
-    value: function handleSubmit(event) {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Keptabs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      onSubmit: this.props.handleSubmit
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      htmlFor: "email"
+    }, "Email:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "email",
+      name: "email"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      htmlFor: "password"
+    }, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "password",
+      name: "password"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "submit"
+    }, "Login")));
+  }
+
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    async handleSubmit(event) {
       event.preventDefault();
-      var email = event.target.email.value;
-      var password = event.target.password.value;
+      const email = event.target.email.value;
+      const password = event.target.password.value;
+      await dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_1__["getUserThunk"])({
+        email: email,
+        password: password
+      }));
     }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Keptabs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "email"
-      }, "Email:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "email",
-        name: "email"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "password"
-      }, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password",
-        name: "password"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "Login")));
-    }
-  }]);
 
-  return Login;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+  };
+};
 
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
 
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Login));
 
 /***/ }),
 
@@ -314,69 +254,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SingleTab; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var SingleTab =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(SingleTab, _Component);
-
-  function SingleTab() {
-    var _this;
-
-    _classCallCheck(this, SingleTab);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SingleTab).call(this));
-    _this.state = {
+class SingleTab extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor() {
+    super();
+    this.state = {
       isHovered: false
     };
-    _this.handleHover = _this.handleHover.bind(_assertThisInitialized(_this));
-    return _this;
+    this.handleHover = this.handleHover.bind(this);
   }
 
-  _createClass(SingleTab, [{
-    key: "handleHover",
-    value: function handleHover() {
-      this.setState(function (prevState) {
-        return {
-          isHovered: !prevState.isHovered
-        };
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var btnClass = this.state.isHovered ? "hovered-list" : "";
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: btnClass,
-        onMouseEnter: this.handleHover,
-        onMouseLeave: this.handleHover
-      }, this.props.url));
-    }
-  }]);
+  handleHover() {
+    this.setState(prevState => ({
+      isHovered: !prevState.isHovered
+    }));
+  }
 
-  return SingleTab;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+  render() {
+    const btnClass = this.state.isHovered ? "hovered-list" : "";
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      className: btnClass,
+      onMouseEnter: this.handleHover,
+      onMouseLeave: this.handleHover
+    }, this.props.url));
+  }
 
-
+}
 
 /***/ }),
 
@@ -396,120 +299,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 
  /// START ADD TABS ///
 
-var ADD_TAB = "ADD_TAB";
+const ADD_TAB = "ADD_TAB";
 
-var addTab = function addTab(data) {
+const addTab = data => {
   return {
     type: ADD_TAB,
     data: data
   };
 };
 
-var addTabThunk = function addTabThunk(url) {
-  return (
-    /*#__PURE__*/
-    function () {
-      var _ref = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(dispatch) {
-        var createdTab;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.post();
-
-              case 2:
-                createdTab = _context.sent;
-                dispatch(createdTab);
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function (_x) {
-        return _ref.apply(this, arguments);
-      };
-    }()
-  );
+const addTabThunk = url => {
+  return async function (dispatch) {
+    const createdTab = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.post();
+    dispatch(createdTab);
+  };
 }; /// END ADD TABS ///
 /// START LOG IN ///
 
 
-var GET_USER = "GET_USER";
+const GET_USER = "GET_USER";
 
-var getUser = function getUser(user) {
+const getUser = user => {
   return {
     type: GET_USER,
     user: user
   };
 };
 
-var getUserThunk = function getUserThunk(formData) {
-  return (
-    /*#__PURE__*/
-    function () {
-      var _ref2 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(dispatch) {
-        var existingUser;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("/api/auth/login", formData);
-
-              case 2:
-                existingUser = _context2.sent;
-                dispatch(getUser(existingUser));
-
-              case 4:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function (_x2) {
-        return _ref2.apply(this, arguments);
-      };
-    }()
-  );
+const getUserThunk = formData => {
+  return async function (dispatch) {
+    console.log("this is dispatched");
+    const existingUser = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("/api/auth/login", formData);
+    dispatch(getUser(existingUser));
+  };
 }; /// END LOG IN ///
 
-var initialState = {
+const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
   readSoon: ["www.article.com", "www.otherarticle.com", "www.redux.com"],
-  readLater: ["www.readlater.com", "www.readevenmorelater.com"]
+  readLater: ["www.readlater.com", "www.readevenmorelater.com"],
+  user: false
 };
 
-function yourReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
+function yourReducer(state = initialState, action) {
   switch (action.type) {
+    case GET_USER:
+      return { ...state,
+        user: action.user
+      };
+
     default:
       return state;
   }
 }
 
-var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(yourReducer, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], Object(redux_logger__WEBPACK_IMPORTED_MODULE_2__["createLogger"])()));
+const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(yourReducer, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], Object(redux_logger__WEBPACK_IMPORTED_MODULE_2__["createLogger"])()));
 /* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
