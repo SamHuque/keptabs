@@ -21,7 +21,6 @@ class Homepage extends Component {
   render() {
     return (
       <div>
-        <h1>Keptabs</h1>
         <form onSubmit={this.handleClick}>
           <label htmlFor="url">Add Tab Here:</label>
           <input size="50" type="text" name="url" />

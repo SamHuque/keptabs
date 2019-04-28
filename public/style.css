@@ -1,7 +1,7 @@
 h1,
 h2 {
   text-align: center;
-  color: teal;
+  color: rgb(6, 140, 250);
 }
 
 form {
@@ -27,13 +27,13 @@ li {
   /* background-color: #eeeeee; */
   border-color: #dddddd;
   /* border-top: 0.5px dashed; */
-  border-bottom: 0.5px teal solid;
+  border-bottom: 0.5px rgb(6, 140, 250) solid;
   text-align: center;
-  color: teal;
+  color: black;
 }
 
 .hovered-list {
-  background-color: teal;
+  background-color: rgb(6, 140, 250);
   border-bottom: 0.5px white solid;
   border-top: 0.5px white solid;
   text-align: center;
@@ -53,7 +53,7 @@ li {
 
 button {
   position: relative;
-  background-color: teal;
+  background-color: rgb(6, 140, 250);
   border: none;
   font-size: 28px;
   color: #ffffff;
@@ -85,4 +85,11 @@ button:active:after {
   margin: 0;
   opacity: 1;
   transition: 0s;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

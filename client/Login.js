@@ -29,6 +29,7 @@ const mapDispatchToProps = dispatch => {
       const email = event.target.email.value;
       const password = event.target.password.value;
       await dispatch(getUserThunk({ email: email, password: password }));
+      history.push("/home");
     }
   };
 };
