@@ -169,6 +169,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _SingleTab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleTab */ "./client/SingleTab.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -192,7 +194,7 @@ class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: this.handleClick
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "url"
@@ -224,7 +226,9 @@ class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "read-later column"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readLater.map(url => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
       url: url
-    }))))));
+    })))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You are not logged in. Please login to keep your tabs!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      to: "/"
+    }, "Login")));
   }
 
 }
@@ -233,11 +237,10 @@ const mapStateToProps = state => {
   return {
     alwaysOpen: state.alwaysOpen,
     readSoon: state.readSoon,
-    readLater: state.readLater
+    readLater: state.readLater,
+    user: state.user
   };
 };
-
-const mapDispatchToProps = dispatch => {};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, null)(Homepage));
 
@@ -27692,7 +27695,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
