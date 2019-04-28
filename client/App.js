@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Homepage from "./Homepage";
 import Login from "./Login";
 import { Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
   }
@@ -11,7 +12,9 @@ export default class App extends Component {
     return (
       <div>
         <nav>
-          <Link to="/login">Login</Link>
+          <Link to="/login">
+            {this.props.user ? <p>Logout</p> : <p>Login</p>}
+          </Link>
           <Link to="home">All Tabs</Link>
         </nav>
         <Route exact path="/home" component={Homepage} />
@@ -20,3 +23,14 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
