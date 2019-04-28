@@ -1,5 +1,15 @@
 const router = require("express").Router();
 const Article = require("../db/models/article");
+const puppeteer = require("puppeteer");
+
+async function getCanonical(url) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(url);
+  const canonical = await page.$eval("link[rel=canonical]", link => link.href);
+  await browser.close();
+  return canonical;
+}
 
 // find all articles
 router.get("/", async (req, res, next) => {
@@ -26,6 +36,10 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {});
+router.post("/", async (req, res, next) => {
+  const urlToCreate = await getCanonical(req.body.url);
+  const addedUrl = await Article.create({ url: urlToCreate });
+  res.json(addedUrl);
+});
 
 module.exports = router;
