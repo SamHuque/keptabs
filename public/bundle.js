@@ -111,7 +111,11 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      to: "/login"
+    }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      to: "home"
+    }, "All Tabs")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       exact: true,
       path: "/home",
       component: _Homepage__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -238,7 +242,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Keptabs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: this.props.handleSubmit
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "email"
@@ -257,17 +261,22 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     async handleSubmit(event) {
       event.preventDefault();
       const email = event.target.email.value;
       const password = event.target.password.value;
-      await dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_1__["getUserThunk"])({
-        email: email,
-        password: password
-      }));
-      history.push("/home");
+
+      if (!(email && password)) {
+        alert("Please enter both email and password to login");
+      } else {
+        await dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_1__["getUserThunk"])({
+          email: email,
+          password: password
+        }));
+        ownProps.history.push("/home");
+      }
     }
 
   };
@@ -374,7 +383,6 @@ const getUser = user => {
 
 const getUserThunk = formData => {
   return async function (dispatch) {
-    console.log("this is dispatched");
     const existingUser = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("/api/auth/login", formData);
     dispatch(getUser(existingUser));
   };
@@ -27628,7 +27636,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

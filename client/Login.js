@@ -9,7 +9,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Keptabs</h1>
         <form onSubmit={this.props.handleSubmit}>
           <label htmlFor="email">Email:</label>
           <input type="email" name="email" />
@@ -22,14 +21,18 @@ class Login extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     async handleSubmit(event) {
       event.preventDefault();
       const email = event.target.email.value;
       const password = event.target.password.value;
-      await dispatch(getUserThunk({ email: email, password: password }));
-      history.push("/home");
+      if (!(email && password)) {
+        alert("Please enter both email and password to login");
+      } else {
+        await dispatch(getUserThunk({ email: email, password: password }));
+        ownProps.history.push("/home");
+      }
     }
   };
 };

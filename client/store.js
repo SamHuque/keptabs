@@ -34,7 +34,6 @@ const getUser = user => {
 
 export const getUserThunk = formData => {
   return async function(dispatch) {
-    console.log("this is dispatched");
     const existingUser = await Axios.put("/api/auth/login", formData);
     dispatch(getUser(existingUser));
   };
