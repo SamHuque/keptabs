@@ -101,6 +101,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Login */ "./client/Login.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store */ "./client/store.js");
+
+
 
 
 
@@ -110,6 +113,12 @@ __webpack_require__.r(__webpack_exports__);
 class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor() {
     super();
+  }
+
+  componentDidMount() {
+    _store__WEBPACK_IMPORTED_MODULE_5__["default"].dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_5__["getMe"])()).then(() => {
+      this.props.history.push("/alltabs");
+    });
   }
 
   render() {
@@ -343,12 +352,13 @@ class SingleTab extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 /*!*************************!*\
   !*** ./client/store.js ***!
   \*************************/
-/*! exports provided: getUserThunk, default */
+/*! exports provided: getUserThunk, getMe, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserThunk", function() { return getUserThunk; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMe", function() { return getMe; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
@@ -393,6 +403,14 @@ const getUserThunk = formData => {
     dispatch(getUser(existingUser));
   };
 }; /// END LOG IN ///
+/// START PERSIS A USER ///
+
+const getMe = () => {
+  return async function (dispatch) {
+    const user = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("api/auth/me");
+    dispatch(getUser(user.data));
+  };
+}; /// END PERSIST A USER ///
 
 const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
@@ -27642,7 +27660,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

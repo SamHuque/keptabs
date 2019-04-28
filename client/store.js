@@ -41,6 +41,17 @@ export const getUserThunk = formData => {
 
 /// END LOG IN ///
 
+/// START PERSIS A USER ///
+
+export const getMe = () => {
+  return async function(dispatch) {
+    const user = await Axios.get("api/auth/me");
+    dispatch(getUser(user.data));
+  };
+};
+
+/// END PERSIST A USER ///
+
 const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
   readSoon: ["www.article.com", "www.otherarticle.com", "www.redux.com"],

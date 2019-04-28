@@ -3,10 +3,17 @@ import Homepage from "./Homepage";
 import Login from "./Login";
 import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import store from "./store";
+import { getMe } from "./store";
 
 class App extends Component {
   constructor() {
     super();
+  }
+  componentDidMount() {
+    store.dispatch(getMe()).then(() => {
+      this.props.history.push("/alltabs");
+    });
   }
   render() {
     return (

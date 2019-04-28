@@ -20,4 +20,19 @@ router.put("/login", async (req, res, next) => {
   }
 });
 
+router.get("/me", async (req, res, next) => {
+  if (!req.session.userId) {
+    const err = new Error("user not found");
+    err.status(404);
+    next(err);
+  } else {
+    const existingUser = await User.findOne({
+      where: {
+        id: req.session.userId
+      }
+    });
+    res.send(existingUser);
+  }
+});
+
 module.exports = router;
