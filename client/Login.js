@@ -11,7 +11,8 @@ export default class Login extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event);
+    const email = event.target.email.value;
+    const password = event.target.password.value;
   }
   render() {
     return (

@@ -19,8 +19,27 @@ const addTabThunk = url => {
     dispatch(createdTab);
   };
 };
-
 /// END ADD TABS ///
+
+/// START LOG IN ///
+
+const GET_USER = "GET_USER";
+
+const getUser = user => {
+  return {
+    type: GET_USER,
+    user: user
+  };
+};
+
+export const getUserThunk = formData => {
+  return async function(dispatch) {
+    const existingUser = await Axios.put("/api/auth/login", formData);
+    dispatch(getUser(existingUser));
+  };
+};
+
+/// END LOG IN ///
 
 const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],

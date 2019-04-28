@@ -271,7 +271,8 @@ function (_Component) {
     key: "handleSubmit",
     value: function handleSubmit(event) {
       event.preventDefault();
-      console.log(event);
+      var email = event.target.email.value;
+      var password = event.target.password.value;
     }
   }, {
     key: "render",
@@ -383,11 +384,12 @@ function (_Component) {
 /*!*************************!*\
   !*** ./client/store.js ***!
   \*************************/
-/*! exports provided: default */
+/*! exports provided: getUserThunk, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserThunk", function() { return getUserThunk; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
@@ -445,7 +447,51 @@ var addTabThunk = function addTabThunk(url) {
     }()
   );
 }; /// END ADD TABS ///
+/// START LOG IN ///
 
+
+var GET_USER = "GET_USER";
+
+var getUser = function getUser(user) {
+  return {
+    type: GET_USER,
+    user: user
+  };
+};
+
+var getUserThunk = function getUserThunk(formData) {
+  return (
+    /*#__PURE__*/
+    function () {
+      var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee2(dispatch) {
+        var existingUser;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.put("/api/auth/login", formData);
+
+              case 2:
+                existingUser = _context2.sent;
+                dispatch(getUser(existingUser));
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function (_x2) {
+        return _ref2.apply(this, arguments);
+      };
+    }()
+  );
+}; /// END LOG IN ///
 
 var initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],

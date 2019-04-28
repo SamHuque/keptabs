@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { db } = require("../server/db/models/index");
+const session = require("express-session");
 
 //logging middleware
 app.use(morgan("dev"));
@@ -14,6 +15,14 @@ app.use(express.static(path.join(__dirname, "../public")));
 // body parsing middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    secret: "this is a scecret",
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
 app.use("/api", require("./api"));
 
