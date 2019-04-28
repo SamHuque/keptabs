@@ -269,7 +269,10 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "form-parent"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      id: "form-actual",
       onSubmit: this.props.handleSubmit
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "email"
@@ -283,7 +286,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       name: "password"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit"
-    }, "Login")));
+    }, "Login"))));
   }
 
 }

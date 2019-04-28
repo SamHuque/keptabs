@@ -9,13 +9,15 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit}>
-          <label htmlFor="email">Email:</label>
-          <input type="email" name="email" />
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" />
-          <button type="submit">Login</button>
-        </form>
+        <div id="form-parent">
+          <form id="form-actual" onSubmit={this.props.handleSubmit}>
+            <label htmlFor="email">Email:</label>
+            <input type="email" name="email" />
+            <label htmlFor="password">Password:</label>
+            <input type="password" name="password" />
+            <button type="submit">Login</button>
+          </form>
+        </div>
       </div>
     );
   }
