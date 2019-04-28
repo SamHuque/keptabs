@@ -11,7 +11,12 @@ router.put("/login", async (req, res, next) => {
     }
   });
   if (existingUser) {
+    req.session.userId = existingUser.id;
     res.json(existingUser);
+  } else {
+    const err = new Error("Incorrect email or password");
+    err.status = 401;
+    next(err);
   }
 });
 

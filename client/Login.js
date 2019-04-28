@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         alert("Please enter both email and password to login");
       } else {
         await dispatch(getUserThunk({ email: email, password: password }));
-        ownProps.history.push("/home");
+        ownProps.history.push("/alltabs");
       }
     }
   };

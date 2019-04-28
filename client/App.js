@@ -15,7 +15,7 @@ class App extends Component {
           <Link>{this.props.user ? <p>Logout</p> : <p />}</Link>
           {/* <Link to="home">All Tabs</Link> */}
         </nav>
-        <Route exact path="/home" component={Homepage} />
+        <Route exact path="/alltabs" component={Homepage} />
         {/* <Route exact path="/login" component={Login} /> */}
         <Route exact path="/" component={Login} />
       </div>
