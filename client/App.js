@@ -12,13 +12,12 @@ class App extends Component {
     return (
       <div>
         <nav>
-          <Link to="/login">
-            {this.props.user ? <p>Logout</p> : <p>Login</p>}
-          </Link>
-          <Link to="home">All Tabs</Link>
+          <Link>{this.props.user ? <p>Logout</p> : <p />}</Link>
+          {/* <Link to="home">All Tabs</Link> */}
         </nav>
         <Route exact path="/home" component={Homepage} />
-        <Route exact path="/login" component={Login} />
+        {/* <Route exact path="/login" component={Login} /> */}
+        <Route exact path="/" component={Login} />
       </div>
     );
   }
