@@ -21,7 +21,12 @@ class App extends Component {
       <div>
         <nav>
           {this.props.user ? (
-            <button onClick={this.props.logout}>Logout</button>
+            <div>
+              <button id="logout-button" onClick={this.props.logout}>
+                Logout
+              </button>
+              <img src="./keptabs.png" alt="keotabs-logo" />
+            </div>
           ) : (
             <p />
           )}

@@ -123,9 +123,13 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      id: "logout-button",
       onClick: this.props.logout
-    }, "Logout") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "./keptabs.png",
+      alt: "keotabs-logo"
+    })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       exact: true,
       path: "/alltabs",
       component: _Homepage__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -195,6 +199,7 @@ class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      id: "add-tab-form",
       onSubmit: this.handleClick
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
       htmlFor: "url"
@@ -226,7 +231,10 @@ class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: "read-later column"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, " READ LATER "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, this.props.readLater.map(url => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SingleTab__WEBPACK_IMPORTED_MODULE_2__["default"], {
       url: url
-    })))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You are not logged in. Please login to keep your tabs!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+    })))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "./keptabs.png",
+      alt: "keotabs-logo"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You are not logged in. Please login to keep your tabs!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
       to: "/"
     }, "Login")));
   }
@@ -269,7 +277,10 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      src: "./keptabs.png",
+      alt: "keotabs-logo"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "form-parent"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       id: "form-actual",

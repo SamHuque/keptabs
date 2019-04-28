@@ -9,6 +9,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <img src="./keptabs.png" alt="keotabs-logo" />
         <div id="form-parent">
           <form id="form-actual" onSubmit={this.props.handleSubmit}>
             <label htmlFor="email">Email:</label>

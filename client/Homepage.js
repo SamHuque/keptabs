@@ -24,7 +24,7 @@ class Homepage extends Component {
       <div>
         {this.props.user ? (
           <div>
-            <form onSubmit={this.handleClick}>
+            <form id="add-tab-form" onSubmit={this.handleClick}>
               <label htmlFor="url">Add Tab Here:</label>
               <input size="50" type="text" name="url" />
               <select className={"select-css"}>
@@ -63,6 +63,7 @@ class Homepage extends Component {
           </div>
         ) : (
           <div>
+            <img src="./keptabs.png" alt="keotabs-logo" />
             <p>You are not logged in. Please login to keep your tabs!</p>
             <Link to="/">Login</Link>
           </div>
