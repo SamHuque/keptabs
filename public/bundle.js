@@ -110,6 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor() {
     super();
@@ -122,7 +123,9 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Logout") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: this.props.logout
+    }, "Logout") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
       exact: true,
       path: "/alltabs",
       component: _Homepage__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -135,13 +138,19 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(Object(_store__WEBPACK_IMPORTED_MODULE_5__["logout"])())
+  };
+};
+
 const mapStateToProps = state => {
   return {
     user: state.user
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, null)(App));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, mapDispatchToProps)(App));
 
 /***/ }),
 
@@ -352,13 +361,14 @@ class SingleTab extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 /*!*************************!*\
   !*** ./client/store.js ***!
   \*************************/
-/*! exports provided: getUserThunk, getMe, default */
+/*! exports provided: getUserThunk, getMe, logout, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserThunk", function() { return getUserThunk; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMe", function() { return getMe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
@@ -411,6 +421,23 @@ const getMe = () => {
     dispatch(getUser(user.data));
   };
 }; /// END PERSIST A USER ///
+/// START DELET A LOGGED IN USER ///
+
+const DELETE_USER = "DELETE_USER";
+
+const deleteUser = () => {
+  return {
+    type: DELETE_USER,
+    user: false
+  };
+};
+
+const logout = () => {
+  return async function (dispatch) {
+    await axios__WEBPACK_IMPORTED_MODULE_3___default.a.delete("api/auth/logout");
+    dispatch(deleteUser());
+  };
+}; /// END A LOGGED INUSER ///
 
 const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
@@ -422,6 +449,11 @@ const initialState = {
 function yourReducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER:
+      return { ...state,
+        user: action.user
+      };
+
+    case DELETE_USER:
       return { ...state,
         user: action.user
       };
@@ -27660,7 +27692,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

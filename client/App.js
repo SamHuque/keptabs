@@ -5,6 +5,7 @@ import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import store from "./store";
 import { getMe } from "./store";
+import { logout } from "./store";
 
 class App extends Component {
   constructor() {
@@ -19,7 +20,11 @@ class App extends Component {
     return (
       <div>
         <nav>
-          {this.props.user ? <button>Logout</button> : <p />}
+          {this.props.user ? (
+            <button onClick={this.props.logout}>Logout</button>
+          ) : (
+            <p />
+          )}
           {/* <Link to="home">All Tabs</Link> */}
         </nav>
         <Route exact path="/alltabs" component={Homepage} />
@@ -30,6 +35,12 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  };
+};
+
 const mapStateToProps = state => {
   return {
     user: state.user
@@ -38,5 +49,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(App);

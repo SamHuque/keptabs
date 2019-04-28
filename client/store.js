@@ -52,6 +52,24 @@ export const getMe = () => {
 
 /// END PERSIST A USER ///
 
+/// START DELET A LOGGED IN USER ///
+const DELETE_USER = "DELETE_USER";
+
+const deleteUser = () => {
+  return {
+    type: DELETE_USER,
+    user: false
+  };
+};
+
+export const logout = () => {
+  return async function(dispatch) {
+    await Axios.delete("api/auth/logout");
+    dispatch(deleteUser());
+  };
+};
+/// END A LOGGED INUSER ///
+
 const initialState = {
   alwaysOpen: ["www.facebook.com", "www.google.com", "www.nytimes.com"],
   readSoon: ["www.article.com", "www.otherarticle.com", "www.redux.com"],
@@ -62,6 +80,8 @@ const initialState = {
 function yourReducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER:
+      return { ...state, user: action.user };
+    case DELETE_USER:
       return { ...state, user: action.user };
     default:
       return state;
