@@ -7,6 +7,17 @@ h2 {
 /* form {
   text-align: center;
 } */
+#parent-add-tab-form {
+  position: relative;
+  height: 100px;
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+}
+
+#add-tab-form {
+  position: relative;
+  height: 100px;
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+}
 
 #form-parent {
   position: relative;
@@ -142,4 +153,20 @@ img {
 
 #add-tab-form {
   align-content: center;
+}
+
+#remove-button {
+  padding: 10px 10px 10px 36px;
+  /* font-family: "Trebuchet MS", Arial, Verdana; */
+  background: white url(https://img.icons8.com/ultraviolet/40/000000/cancel.png)
+    10px 10px no-repeat;
+  border-radius: 16px;
+  border: 1px solid red;
+  text-shadow: 1px 1px red;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
 }

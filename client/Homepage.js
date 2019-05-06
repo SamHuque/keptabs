@@ -24,16 +24,20 @@ class Homepage extends Component {
       <div>
         {this.props.user ? (
           <div>
-            <form id="add-tab-form" onSubmit={this.handleClick}>
-              <label htmlFor="url">Add Tab Here:</label>
-              <input size="50" type="text" name="url" />
-              <select className={"select-css"}>
-                <option value="always-open">Always Open</option>
-                <option value="read-now">Read Soon</option>
-                <option value="read-later">Read Later</option>
-              </select>
-              <button type="submit">Add Tab</button>
-            </form>
+            <div id="parent-add-tab-form">
+              <form id="add-tab-form" onSubmit={this.handleClick}>
+                <label htmlFor="url">Add Tab Here:</label>
+                <input size="50" type="text" name="url" />
+                <select className={"select-css"}>
+                  <option value="always-open">Always Open</option>
+                  <option value="read-now">Read Soon</option>
+                  <option value="read-later">Read Later</option>
+                </select>
+                <button class="raise" type="submit">
+                  Add Tab
+                </button>
+              </form>
+            </div>
             <div className="row">
               <div className="always-open column">
                 <h2>ALWAYS OPEN</h2>

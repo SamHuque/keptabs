@@ -16,7 +16,9 @@ class Login extends Component {
             <input type="email" name="email" />
             <label htmlFor="password">Password:</label>
             <input type="password" name="password" />
-            <button type="submit">Login</button>
+            <button class="raise" type="submit">
+              Login
+            </button>
           </form>
         </div>
       </div>

@@ -23,7 +23,12 @@ export default class SingleTab extends Component {
           onMouseLeave={this.handleHover}
         >
           {/* props come get passed into this from the parent Homepage component (url)*/}
-          {this.props.url}
+          {this.props.url}{" "}
+          {this.state.isHovered ? (
+            <button id="remove-button">remove</button>
+          ) : (
+            ""
+          )}
         </li>
       </div>
     );

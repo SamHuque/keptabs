@@ -13,6 +13,23 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//get all articles a user has on reading list
+router.get("/articles", async (req, res, next) => {
+  try {
+    console.log("THIS IS THE SESSION", req.session);
+    const userId = req.session.userId;
+    const theUser = await User.findOne({
+      where: {
+        id: userId
+      }
+    });
+    const actualData = await theUser.getArticles();
+    res.json(actualData);
+  } catch (error) {
+    next(error);
+  }
+});
+
 //get users by id
 router.get("/:id", async (req, res, next) => {
   try {
@@ -23,22 +40,6 @@ router.get("/:id", async (req, res, next) => {
       }
     });
     res.json(data);
-  } catch (error) {
-    next(error);
-  }
-});
-
-//get all articles a user has on reading list
-router.get("/:id/articles", async (req, res, next) => {
-  try {
-    const userId = req.params.id;
-    const theUser = await User.findOne({
-      where: {
-        id: userId
-      }
-    });
-    const actualData = await theUser.getArticles();
-    res.json(actualData);
   } catch (error) {
     next(error);
   }

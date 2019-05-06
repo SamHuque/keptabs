@@ -198,7 +198,9 @@ class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "parent-add-tab-form"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       id: "add-tab-form",
       onSubmit: this.handleClick
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -216,8 +218,9 @@ class Homepage extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, "Read Soon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       value: "read-later"
     }, "Read Later")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      class: "raise",
       type: "submit"
-    }, "Add Tab")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Add Tab"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "row"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "always-open column"
@@ -296,6 +299,7 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       type: "password",
       name: "password"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      class: "raise",
       type: "submit"
     }, "Login"))));
   }
@@ -367,7 +371,9 @@ class SingleTab extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       className: btnClass,
       onMouseEnter: this.handleHover,
       onMouseLeave: this.handleHover
-    }, this.props.url));
+    }, this.props.url, " ", this.state.isHovered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      id: "remove-button"
+    }, "remove") : ""));
   }
 
 }
@@ -408,7 +414,7 @@ const addTab = data => {
 
 const addTabThunk = url => {
   return async function (dispatch) {
-    const createdTab = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.post();
+    const createdTab = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get();
     dispatch(createdTab);
   };
 }; /// END ADD TABS ///
@@ -27709,7 +27715,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

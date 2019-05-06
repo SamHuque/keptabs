@@ -36,6 +36,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+// create an article
 router.post("/", async (req, res, next) => {
   const urlToCreate = await getCanonical(req.body.url);
   const addedUrl = await Article.create({ url: urlToCreate });

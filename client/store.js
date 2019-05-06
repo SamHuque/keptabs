@@ -15,7 +15,7 @@ const addTab = data => {
 
 const addTabThunk = url => {
   return async function(dispatch) {
-    const createdTab = await Axios.post();
+    const createdTab = await Axios.get();
     dispatch(createdTab);
   };
 };
